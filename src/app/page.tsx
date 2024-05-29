@@ -1,15 +1,10 @@
-import TitleSection from "./components/layout/TitleSection";
-import Container from "./components/layout/Container";
+import ContentSection from "./components/layout/ContentSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen justify-between">
-      <Container>
-        <TitleSection
-          h1Text="JavaScript Frontend Developer 👨‍💻"
-          subText="Hey, I'm Ryan."
-        />
-      </Container>
+    <main className="flex min-h-screen flex-col">
+      <ContentSection id="hero" />
+      <ContentSection id="about" />
     </main>
   );
 }

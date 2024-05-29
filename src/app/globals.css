@@ -2,10 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: nasalizationReg;
+  src: url("./assets/fonts/nasalizationReg.otf");
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: black;
+  background-image: url("./assets//images/DamascusWallpaper1000.jpg");
+  color: rgb(var(--foreground-rgb));
+  font-family: "nasalizationReg", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+a.btn {
+  padding: 8px 24px;
+  border-radius: 8px;
+}
+
+a.btn-primary {
+  background: #005995;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,16 +41,6 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
