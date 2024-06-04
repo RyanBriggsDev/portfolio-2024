@@ -29,10 +29,41 @@ body {
 a.btn {
   padding: 8px 24px;
   border-radius: 8px;
+  transition: ease-in-out 200ms all;
 }
 
-a.btn-primary {
+a.btn.btn-primary {
   background: #005995;
+}
+
+a.btn.btn-primary:hover {
+  background: #0d3a5c;
+  color: #fff;
+}
+
+a.btn:hover {
+  color: #0d3a5c;
+}
+
+/* Skills */
+
+.item {
+  position: relative;
+  transform: skewY(-10deg) rotate(0deg); /* Adjusted to keep top line horizontal */
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.item:hover {
+  width: 75%;
+}
+
+.skills-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh;
+  overflow: hidden; /* Ensure no overflow */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -47,4 +78,15 @@ a.btn-primary {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in-left.active {
+  opacity: 1;
+  transform: translateX(0);
 }
