@@ -2,6 +2,8 @@ import ContentSection from "./components/layout/ContentSection";
 import SkillsCard from "./components/SkillsCard";
 import SkillsContainer from "./components/SkillsContainer";
 import ReactLogo from "./assets/images/react_logo.png";
+import TailwindLogo from "./assets/images/tailwindLogo.png";
+import NodeLogo from "./assets/images/nodeJsLogo.png";
 
 export default function Home() {
   return (
@@ -44,26 +46,9 @@ export default function Home() {
       </ContentSection>
       <ContentSection id="skills" containerClassName="">
         <div className="flex flex-col mb-8">
-          <h2 className="text-4xl md:text-5xl mb-4">My Skills</h2>
+          <h2 className="text-4xl md:text-5xl">My Skills</h2>
         </div>
-        <SkillsContainer>
-          <SkillsCard backgroundImage={ReactLogo}>Yes</SkillsCard>
-          <SkillsCard backgroundColor="red" backgroundImage={"/"}>
-            Yes
-          </SkillsCard>
-          <SkillsCard backgroundColor="black" backgroundImage={"/"}>
-            Yes
-          </SkillsCard>
-          <SkillsCard backgroundColor="purple" backgroundImage={"/"}>
-            Yes
-          </SkillsCard>
-          <SkillsCard backgroundColor="blue" backgroundImage={"/"}>
-            Yes
-          </SkillsCard>
-          <SkillsCard backgroundColor="lime" backgroundImage={"/"}>
-            Yes
-          </SkillsCard>
-        </SkillsContainer>
+        <SkillsContainer>jfdshfdijs</SkillsContainer>
       </ContentSection>
       <ContentSection id="projects">
         <h2>Projects</h2>
