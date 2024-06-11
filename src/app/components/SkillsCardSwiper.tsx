@@ -29,8 +29,19 @@ const SkillsCardSwiper: React.FC<SkillsCardSwiperProps> = ({
     <Swiper
       spaceBetween={60}
       className={`${data.title.toLowerCase()}-swiper`}
-      slidesPerView={3}
+      slidesPerView={1.8}
       data-title={data.title.toLowerCase()}
+      breakpoints={{
+        440: {
+          slidesPerView: 2.8,
+        },
+        1024: {
+          slidesPerView: 3.8,
+        },
+        1440: {
+          slidesPerView: 4.8,
+        },
+      }}
       style={
         activeTab === data.title.toLowerCase()
           ? { display: "block" }

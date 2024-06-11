@@ -18,20 +18,22 @@ type SkillsTabsProps = {
 
 const SkillsTabs: React.FC<SkillsTabsProps> = ({ data, setActiveTab }) => {
   return (
-    <Swiper
-      className="skills-swiper-navigation"
-      slidesPerView={"auto"}
-      spaceBetween={30}
-    >
-      {data.map((skillType) => (
-        <SwiperSlide
-          className="!w-fit"
-          onClick={() => setActiveTab(skillType.title.toLowerCase())}
-        >
-          {skillType.title}
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="skills-tabs mb-3">
+      <Swiper
+        className="skills-swiper-navigation"
+        slidesPerView={"auto"}
+        spaceBetween={30}
+      >
+        {data.map((skillType) => (
+          <SwiperSlide
+            className="!w-fit cursor-pointer duration-300 ease-in-out hover:text-[#005995]"
+            onClick={() => setActiveTab(skillType.title.toLowerCase())}
+          >
+            {skillType.title}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 
