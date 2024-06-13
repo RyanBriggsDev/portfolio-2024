@@ -1,55 +1,82 @@
+import React from "react";
 import ContentSection from "./components/layout/ContentSection";
-import SkillsCard from "./components/SkillsCard";
-import SkillsContainer from "./components/SkillsContainer";
-import ReactLogo from "./assets/images/react_logo.png";
-import TailwindLogo from "./assets/images/tailwindLogo.png";
-import NodeLogo from "./assets/images/nodeJsLogo.png";
+// import SkillsContainer from "./components/SkillsContainer";
+import TypeScriptLogo from "./assets/images/icons/typescript_mod.svg";
+import ReactLogo from "./assets/images/icons/react_mod.svg";
+import JavaScriptLogo from "./assets/images/icons/js_mod.svg";
+import ShopifyLogo from "./assets/images/icons/shopify_mod.svg";
+import AngularLogo from "./assets/images/icons/angular_mod.svg";
+import VueLogo from "./assets/images/icons/vue_mod.svg";
 
 export default function Home() {
+  const skills = [
+    {
+      title: "React",
+      image: ReactLogo,
+    },
+    {
+      title: "Angular",
+      image: AngularLogo,
+    },
+    {
+      title: "Vue",
+      image: VueLogo,
+    },
+    {
+      title: "TypeScript",
+      image: TypeScriptLogo,
+    },
+    {
+      title: "JavaScript",
+      image: JavaScriptLogo,
+    },
+    {
+      title: "Shopify Liquid",
+      image: ShopifyLogo,
+    },
+  ];
+
   return (
-    <main className="flex min-h-screen flex-col">
+    <main>
       <ContentSection id="hero">
         <div>
           <h1 className="text-5xl md:text-6xl">Software Developer 👨‍💻</h1>
           <h4 className="text-3xl md:text-4xl">Hey, I'm Ryan.</h4>
         </div>
       </ContentSection>
-      <ContentSection id="about">
-        <div className="flex flex-col mb-8">
-          <h2 className="text-4xl md:text-5xl mb-4">About Me</h2>
-          <h4 className="text-2xl md:text-3xl">Learn a bit about me.</h4>
-        </div>
-        <div className="flex flex-col gap-4 max-w-[750px]">
+      <ContentSection
+        id="about"
+        containerClassName="grid grid-cols-1 md:grid-cols-2 gap-8"
+      >
+        <div className="about-me">
+          <h2 className="mb-2">About Me</h2>
+          <h4 className="mb-8">Learn a bit about me.</h4>
           <p>
-            I am a self taught front end web developer with 1 year of experience
+            I am a self-taught front-end web developer with 1 year of experience
             in creating dynamic and responsive web applications using React and
             Next.js frameworks.
           </p>
-          <p>
-            My expertise in HTML, CSS, and JavaScript allows me to build
-            visually appealing and user-friendly websites. I have a solid
-            understanding of the principles of component-based development, and
-            am passionate about creating high-performance and scalable web
-            applications that provide an exceptional user experience.
-          </p>
-          <p>
-            I am a fast learner, and I am always eager to expand my skillset and
-            improve my development process. I am excited to continue learning
-            and growing as a developer, and am eager to apply my skills to
-            real-world projects.
-          </p>
-          <p>
-            In my free time, I love going for long walks with my dog, Ivy. I'm
-            also doing a part time undergraduate degree in software engineering.
-          </p>
+        </div>
+        {/* grid grid-cols-3 lg:grid-cols-4 gap-3 */}
+        <div className="skills flex flex-wrap gap-3 items-center justify-center [&>*]:min-w-[100px]">
+          {skills.map((skill, index) => (
+            <div key={index} className="skill-item flex flex-col items-center">
+              <img
+                src={skill.image.src}
+                alt={`${skill.title} logo`}
+                className="skill-icon mb-2"
+              />
+              <span>{skill.title}</span>
+            </div>
+          ))}
         </div>
       </ContentSection>
-      <ContentSection id="skills" containerClassName="">
+      {/* <ContentSection id="skills" containerClassName="">
         <div className="flex flex-col mb-8">
-          <h2 className="text-4xl md:text-5xl">My Skills</h2>
+          <h2>My Skills</h2>
         </div>
-        <SkillsContainer>jfdshfdijs</SkillsContainer>
-      </ContentSection>
+        <SkillsContainer />
+      </ContentSection> */}
       <ContentSection id="projects">
         <h2>Projects</h2>
       </ContentSection>
