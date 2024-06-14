@@ -1,40 +1,49 @@
-"use client";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-type SkillType = {
+type SkillItem = {
   title: string;
+  image: any;
+};
+
+type SkillCategory = {
+  type: string;
+  items: SkillItem[];
 };
 
 type SkillsTabsProps = {
-  data: SkillType[];
-  setActiveTab: (title: string) => void;
+  category: SkillCategory;
+  setActiveTab?: (title: string) => void;
+  className?: string;
 };
 
-const SkillsTabs: React.FC<SkillsTabsProps> = ({ data, setActiveTab }) => {
+const SkillsTabs: React.FC<SkillsTabsProps> = ({
+  className,
+  category,
+  setActiveTab,
+}) => {
+  let handleTabSwitch = () => {
+    if (setActiveTab) {
+      setActiveTab(category.type.toLowerCase().replace(" ", "-"));
+    }
+  };
+
   return (
-    <div className="skills-tabs mb-3">
-      <Swiper
-        className="skills-swiper-navigation"
-        slidesPerView={"auto"}
-        spaceBetween={30}
-      >
-        {data.map((skillType) => (
-          <SwiperSlide
-            className="!w-fit cursor-pointer duration-300 ease-in-out hover:text-[#005995]"
-            onClick={() => setActiveTab(skillType.title.toLowerCase())}
-          >
-            {skillType.title}
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div
+      onClick={() => handleTabSwitch()}
+      className={`skills-tab transition-all ease-in-out duration-300 hover:text-[#005995] hover:underline cursor-pointer ${className}`}
+    >
+      {category.type}
     </div>
   );
 };
 
 export default SkillsTabs;
+
+{
+  /* <div className="skills-items">
+    {category.items.map((item, index) => (
+      <div key={index} className="skill-item">
+        <img src={item.image} alt={`${item.title} logo`} />
+        <span>{item.title}</span>
+      </div>
+    ))}
+  </div> */
+}
