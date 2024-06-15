@@ -28,7 +28,7 @@ const SkillsTabs: React.FC<SkillsTabsProps> = ({
   return (
     <div
       onClick={() => handleTabSwitch()}
-      className={`skills-tab transition-all ease-in-out duration-300 hover:text-[#005995] hover:underline cursor-pointer ${className}`}
+      className={`skills-tab transition-all ease-in-out duration-300 hover:text-[#005995] hover:underline cursor-pointer text-center lg:text-left ${className}`}
     >
       {category.type}
     </div>

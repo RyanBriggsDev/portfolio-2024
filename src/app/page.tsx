@@ -161,7 +161,7 @@ export default function Home() {
           </p>
         </div>
         <div className="skills flex flex-col gap-8">
-          <div className="flex flex-wrap gap-3 items-center justify-center [&>*]:min-w-[100px]">
+          <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start [&>*]:min-w-[100px]">
             {skills.map((category, index) => (
               <SkillsTabs
                 key={index}
