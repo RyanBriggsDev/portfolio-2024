@@ -33,6 +33,7 @@ import TrelloLogo from "./assets/images/icons/trello_mod.svg";
 type SkillItem = {
   title: string;
   image: any;
+  url: string;
 };
 
 type SkillCategory = {
@@ -47,38 +48,47 @@ const skills: SkillCategory[] = [
       {
         title: "React",
         image: ReactLogo,
+        url: "https://reactjs.org/",
       },
       {
         title: "Angular",
         image: AngularLogo,
+        url: "https://angular.io/",
       },
       {
         title: "Vue",
         image: VueLogo,
+        url: "https://vuejs.org/",
       },
       {
         title: "Shopify Liquid",
         image: ShopifyLogo,
+        url: "https://shopify.dev/docs",
       },
       {
         title: "TypeScript",
         image: TypeScriptLogo,
+        url: "https://www.typescriptlang.org/",
       },
       {
         title: "JavaScript",
         image: JavaScriptLogo,
+        url: "https://www.javascript.com/",
       },
       {
         title: "Jest",
         image: JestLogo,
+        url: "https://jestjs.io/",
       },
       {
         title: "Tailwind",
         image: TailwindLogo,
+        url: "https://tailwindcss.com/",
       },
       {
         title: "Sass",
         image: SassLogo,
+        url: "https://sass-lang.com/",
       },
     ],
   },
@@ -88,22 +98,27 @@ const skills: SkillCategory[] = [
       {
         title: "Node.js",
         image: NodeJsLogo,
+        url: "https://nodejs.org/",
       },
       {
         title: "Python",
         image: PythonLogo,
+        url: "https://www.python.org/",
       },
       {
         title: "MongoDB",
         image: MongoDBLogo,
+        url: "https://www.mongodb.com/",
       },
       {
         title: "Express",
         image: ExpressLogo,
+        url: "https://expressjs.com/",
       },
       {
         title: "Firebase",
         image: FirebaseLogo,
+        url: "https://firebase.google.com/",
       },
     ],
   },
@@ -113,22 +128,27 @@ const skills: SkillCategory[] = [
       {
         title: "Git",
         image: GitLogo,
+        url: "https://git-scm.com/",
       },
       {
         title: "GitHub",
         image: GitHubLogo,
+        url: "https://github.com",
       },
       {
         title: "VS Code",
         image: VSCodeLogo,
+        url: "https://code.visualstudio.com/",
       },
       {
         title: "Slack",
         image: SlackLogo,
+        url: "https://slack.com/",
       },
       {
         title: "Trello",
         image: TrelloLogo,
+        url: "https://trello.com/",
       },
     ],
   },
@@ -181,6 +201,10 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </ContentSection>
+
+      <ContentSection id="experience">
+        <h2>Professional Experience</h2>
       </ContentSection>
 
       <ContentSection id="projects">

@@ -3,6 +3,7 @@ import SkillCard from "./SkillCard";
 type SkillItem = {
   title: string;
   image: any;
+  url: string;
 };
 
 type SkillCategory = {
