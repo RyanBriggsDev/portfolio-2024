@@ -7,13 +7,28 @@ import ContentSection from "./components/layout/ContentSection";
 import SkillsTabs from "./components/SkillsTabs";
 import SkillsCards from "./components/SkillsCards";
 
-// import SkillsContainer from "./components/SkillsContainer";
+// Frontend Icons
 import TypeScriptLogo from "./assets/images/icons/typescript_mod.svg";
 import ReactLogo from "./assets/images/icons/react_mod.svg";
 import JavaScriptLogo from "./assets/images/icons/js_mod.svg";
 import ShopifyLogo from "./assets/images/icons/shopify_mod.svg";
 import AngularLogo from "./assets/images/icons/angular_mod.svg";
 import VueLogo from "./assets/images/icons/vue_mod.svg";
+import JestLogo from "./assets/images/icons/jest_mod.svg";
+import TailwindLogo from "./assets/images/icons/tailwind_mod.svg";
+import SassLogo from "./assets/images/icons/sass_mod.svg";
+// Backend Icons
+import NodeJsLogo from "./assets/images/icons/nodejs_mod.svg";
+import PythonLogo from "./assets/images/icons/python_mod.svg";
+import MongoDBLogo from "./assets/images/icons/mongo_mod.svg";
+import ExpressLogo from "./assets/images/icons/expressjs_mod.svg";
+import FirebaseLogo from "./assets/images/icons/firebase_mod.svg";
+// Tools Icons
+import GitLogo from "./assets/images/icons/git_mod.svg";
+import GitHubLogo from "./assets/images/icons/github_mod.svg";
+import VSCodeLogo from "./assets/images/icons/vscode_mod.svg";
+import SlackLogo from "./assets/images/icons/slack_mod.svg";
+import TrelloLogo from "./assets/images/icons/trello_mod.svg";
 
 type SkillItem = {
   title: string;
@@ -53,6 +68,18 @@ const skills: SkillCategory[] = [
         title: "JavaScript",
         image: JavaScriptLogo,
       },
+      {
+        title: "Jest",
+        image: JestLogo,
+      },
+      {
+        title: "Tailwind",
+        image: TailwindLogo,
+      },
+      {
+        title: "Sass",
+        image: SassLogo,
+      },
     ],
   },
   {
@@ -60,35 +87,23 @@ const skills: SkillCategory[] = [
     items: [
       {
         title: "Node.js",
-        image: "nodejs",
+        image: NodeJsLogo,
       },
       {
         title: "Python",
-        image: "python",
+        image: PythonLogo,
       },
       {
         title: "MongoDB",
-        image: "MongoDB",
+        image: MongoDBLogo,
       },
       {
         title: "Express",
-        image: "express",
+        image: ExpressLogo,
       },
       {
         title: "Firebase",
-        image: "firebase",
-      },
-      {
-        title: "Drizzle",
-        image: "drizzle",
-      },
-      {
-        title: "Turso",
-        image: "turso",
-      },
-      {
-        title: "SQL",
-        image: "SQL",
+        image: FirebaseLogo,
       },
     ],
   },
@@ -97,23 +112,23 @@ const skills: SkillCategory[] = [
     items: [
       {
         title: "Git",
-        image: "git",
+        image: GitLogo,
       },
       {
         title: "GitHub",
-        image: "github",
+        image: GitHubLogo,
       },
       {
         title: "VS Code",
-        image: "vscode",
+        image: VSCodeLogo,
       },
       {
         title: "Slack",
-        image: "slack",
+        image: SlackLogo,
       },
       {
         title: "Trello",
-        image: "trello",
+        image: TrelloLogo,
       },
     ],
   },
