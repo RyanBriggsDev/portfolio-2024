@@ -6,6 +6,9 @@ import { useState } from "react";
 import ContentSection from "./components/layout/ContentSection";
 import SkillsTabs from "./components/SkillsTabs";
 import SkillsCards from "./components/SkillsCards";
+import AccordionSection from "./components/AccordionSection";
+
+import RCALogo from "../app/assets/images/icons/rca_logo.svg";
 
 // Frontend Icons
 import TypeScriptLogo from "./assets/images/icons/typescript_mod.svg";
@@ -40,6 +43,34 @@ type SkillCategory = {
   type: string;
   items: SkillItem[];
 };
+
+type ExperienceCategory = {
+  title: string;
+  company: string;
+  description: string;
+  employmentType: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+  workArrangement: string;
+  skills: string[];
+  logo: string;
+};
+
+const experience: ExperienceCategory[] = [
+  {
+    title: "Junior Front-End Developer",
+    company: "Rainy City Agency",
+    description: "Award-Winning Shopify Plus Agency",
+    employmentType: "Full-time",
+    startDate: "Jul 2023",
+    endDate: "Present",
+    location: "Manchester, United Kingdom",
+    workArrangement: "Hybrid",
+    skills: ["React", "Shopify Liquid", "Tailwind CSS", "JavaScript", "Git"],
+    logo: RCALogo.src,
+  },
+];
 
 const skills: SkillCategory[] = [
   {
@@ -197,14 +228,19 @@ export default function Home() {
           </div>
           <div className="skills-card-container-parent">
             {skills.map((category, index) => (
-              <SkillsCards category={category} activeTab={activeTab} />
+              <SkillsCards
+                category={category}
+                activeTab={activeTab}
+                key={index}
+              />
             ))}
           </div>
         </div>
       </ContentSection>
 
       <ContentSection id="experience">
-        <h2>Professional Experience</h2>
+        <h2 className="mb-8">Professional Experience</h2>
+        <AccordionSection experiences={experience} />
       </ContentSection>
 
       <ContentSection id="projects">
