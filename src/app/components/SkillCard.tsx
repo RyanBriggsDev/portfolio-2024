@@ -17,7 +17,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ item }: SkillCardProps) => {
       target="_blank"
     >
       <img src={item.image.src} alt={`${item.title} logo`} />
-      <p>{item.title}</p>
+      <p className=" text-white">{item.title}</p>
     </a>
   );
 };

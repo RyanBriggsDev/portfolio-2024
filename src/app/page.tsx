@@ -193,8 +193,10 @@ export default function Home() {
     <main>
       <ContentSection id="hero">
         <div>
-          <h1 className="text-5xl md:text-6xl">Software Developer 👨‍💻</h1>
-          <h4 className="text-3xl md:text-4xl">Hey, I'm Ryan.</h4>
+          <h1 className="text-5xl md:text-6xl text-white">
+            Software Developer 👨‍💻
+          </h1>
+          <h4 className="text-3xl md:text-4xl text-white">Hey, I'm Ryan.</h4>
         </div>
       </ContentSection>
 
@@ -203,15 +205,15 @@ export default function Home() {
         containerClassName="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
       >
         <div className="about-me">
-          <h2 className="mb-2">About Me</h2>
-          <h4 className="mb-8">Learn a bit about me.</h4>
+          <h2 className="mb-2 text-white">About Me</h2>
+          <h4 className="mb-8 text-white">Learn a bit about me.</h4>
           <p>
             I am a self-taught front-end web developer with 1 year of experience
             in creating dynamic and responsive web applications using React and
             Next.js frameworks.
           </p>
         </div>
-        <div className="skills flex flex-col gap-8">
+        <div className="skills flex flex-col gap-8 ">
           <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start [&>*]:min-w-[100px]">
             {skills.map((category, index) => (
               <SkillsTabs
@@ -243,13 +245,13 @@ export default function Home() {
         containerClassName="grid grid-cols-12 gap-8 items-center"
       >
         <div className="col-span-12 md:col-span-12">
-          <h2 className="mb-8">Professional Experience</h2>
+          <h2 className="mb-8 text-white">Professional Experience</h2>
           <AccordionSection experiences={experience} />
         </div>
       </ContentSection>
 
       <ContentSection id="projects">
-        <h2>Projects</h2>
+        <h2 className="text-white">Projects</h2>
       </ContentSection>
 
       <ContentSection id="now">
