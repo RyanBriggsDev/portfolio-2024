@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import { Transition } from "@headlessui/react";
 
 type ExperienceCategory = {
@@ -16,37 +16,33 @@ type ExperienceCategory = {
 
 type ExperienceAccordionProps = {
   experience: ExperienceCategory;
-  isOpenByDefault?: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
 };
 
 const ExperienceAccordion: React.FC<ExperienceAccordionProps> = ({
   experience,
-  isOpenByDefault = false,
+  isOpen,
+  onToggle,
 }) => {
-  const [isOpen, setIsOpen] = useState(isOpenByDefault);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <div className="mb-4 p-4 bg-gray-800 rounded-lg text-white">
+    <div className="mb-4 p-4 bg-gray-800 rounded-lg text-white col-span-12">
       <div
-        className={`flex flex-row justify-between items-start md:items-center cursor-pointer p-3 rounded-lg hover:bg-secondary transition-colors duration-300 ease-in-out ${
+        className={`group flex flex-row justify-between items-start md:items-center cursor-pointer p-3 rounded-lg hover:bg-secondary transition-colors duration-300 ease-in-out ${
           isOpen ? "bg-secondary" : "bg-primary"
         }`}
-        onClick={toggleAccordion}
+        onClick={onToggle}
       >
         <div className="flex flex-col w-full">
-          <span className="text-lg font-medium">
+          <span className="text-lg font-medium group-hover:-translate-y-1 transition-transform duration-300 ease-in-out">
             {experience.title} @ {experience.company}
           </span>
-          <span className="mt-1 md:mt-0 text-sm text-gray-300">{`${experience.startDate} - ${experience.endDate}`}</span>
+          <span className="mt-1 md:mt-0 text-sm text-gray-300 group-hover:-translate-y-1 transition-transform duration-300 ease-in-out">{`${experience.startDate} - ${experience.endDate}`}</span>
         </div>
         <div className="md:ml-2 text-gray-300 hover:text-white transition-transform duration-300 ease-in-out">
           <div
-            className={`transform transition-transform duration-300 text-3xl ${
-              isOpen ? "rotate-45 scale-125" : "rotate-0 scale-100"
+            className={`transform transition-transform duration-300 text-3xl group-hover:-translate-y-1 ${
+              isOpen ? "rotate-45" : "rotate-0"
             }`}
           >
             +
@@ -92,15 +88,15 @@ const ExperienceAccordion: React.FC<ExperienceAccordionProps> = ({
                   ))}
                 </div>
               </div>
-              {/* {experience.logo && (
-                <div className="mt-4 md:mt-0 md:ml-4 flex justify-center items-center">
+              {experience.logo && (
+                <div className="mt-4 md:mt-0 md:ml-4 hidden md:flex justify-center items-center">
                   <img
                     src={experience.logo}
                     alt={`${experience.company} logo`}
-                    className="h-24 w-auto object-contain"
+                    className="h-12 w-auto object-contain"
                   />
                 </div>
-              )} */}
+              )}
             </div>
           </Transition>
         </div>

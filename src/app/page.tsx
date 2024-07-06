@@ -238,9 +238,14 @@ export default function Home() {
         </div>
       </ContentSection>
 
-      <ContentSection id="experience">
-        <h2 className="mb-8">Professional Experience</h2>
-        <AccordionSection experiences={experience} />
+      <ContentSection
+        id="experience"
+        containerClassName="grid grid-cols-12 gap-8 items-center"
+      >
+        <div className="col-span-12 md:col-span-12">
+          <h2 className="mb-8">Professional Experience</h2>
+          <AccordionSection experiences={experience} />
+        </div>
       </ContentSection>
 
       <ContentSection id="projects">
