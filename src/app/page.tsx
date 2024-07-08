@@ -8,6 +8,8 @@ import SkillsTabs from "./components/SkillsTabs";
 import SkillsCards from "./components/SkillsCards";
 import AccordionSection from "./components/AccordionSection";
 
+import Projects from "./components/Projects";
+
 import RCALogo from "../app/assets/images/icons/rca_logo.svg";
 
 // Frontend Icons
@@ -193,8 +195,9 @@ export default function Home() {
     <main>
       <ContentSection id="hero">
         <div>
+          4
           <h1 className="text-5xl md:text-6xl text-white">
-            Software Developer 👨‍💻
+            Frontend Developer 👨‍💻
           </h1>
           <h4 className="text-3xl md:text-4xl text-white">Hey, I'm Ryan.</h4>
         </div>
@@ -250,9 +253,7 @@ export default function Home() {
         </div>
       </ContentSection>
 
-      <ContentSection id="projects">
-        <h2 className="text-white">Projects</h2>
-      </ContentSection>
+      <Projects />
 
       <ContentSection id="now">
         <h2>Now</h2>
