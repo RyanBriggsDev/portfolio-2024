@@ -9,6 +9,7 @@ import SkillsCards from "./components/SkillsCards";
 import AccordionSection from "./components/AccordionSection";
 
 import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 
 import RCALogo from "../app/assets/images/icons/rca_logo.svg";
 
@@ -254,9 +255,7 @@ export default function Home() {
 
       <Projects />
 
-      <ContentSection id="contact">
-        <h2>Contact</h2>
-      </ContentSection>
+      <Contact />
     </main>
   );
 }
