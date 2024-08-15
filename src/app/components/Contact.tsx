@@ -59,9 +59,21 @@ const ContactForm: React.FC = () => {
   return (
     <ContentSection id="contact">
       <h2 className="text-white mb-2">Contact</h2>
-      <h4 className="text-white mb-8">
+      <h4 className="text-white mb-4">
         I'm always looking for new and interesting projects to collab on.
       </h4>
+      <p className="text-white mb-8">
+        Check out my projects on{" "}
+        <a
+          href="https://github.com/ryanbriggsdev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 hover:text-blue-300 transition-colors duration-300"
+        >
+          GitHub
+        </a>
+        .
+      </p>
       <form
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto bg-gray-600/30 p-8 rounded-lg"
