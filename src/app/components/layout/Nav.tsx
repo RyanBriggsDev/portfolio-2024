@@ -3,11 +3,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
+interface NavItem {
+  href: string;
+  label: string;
+  buttonType?: string;
+}
+
 function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navRef = useRef(null);
+  const navRef = useRef<HTMLElement>(null);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { href: "#about", label: "About" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
@@ -19,8 +25,8 @@ function Nav() {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setIsMenuOpen(false);
       }
     };
@@ -40,7 +46,7 @@ function Nav() {
         <Link href="#hero" className="btn">
           <h3 className="text-xl">RyanBriggs.Dev</h3>
         </Link>
-        <div className="lg:hidden pr-4">
+        <div className="lg:hidden">
           <button
             onClick={toggleMenu}
             className="text-white w-6 h-6 relative focus:outline-none"
