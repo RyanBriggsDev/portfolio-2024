@@ -69,7 +69,7 @@ const experience: ExperienceCategory[] = [
     endDate: "Present",
     location: "Manchester, United Kingdom",
     workArrangement: "Hybrid",
-    skills: ["React", "Shopify Liquid", "Tailwind CSS", "JavaScript", "Git"],
+    skills: ["Shopify Liquid", "Tailwind CSS", "JavaScript", "Git", "React"],
     logo: RCALogo.src,
   },
 ];
@@ -195,7 +195,6 @@ export default function Home() {
     <main>
       <ContentSection id="hero">
         <div>
-          4
           <h1 className="text-5xl md:text-6xl text-white">
             Frontend Developer 👨‍💻
           </h1>
@@ -231,7 +230,7 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className="skills-card-container-parent">
+          <div className="skills-card-container-parent min-h-80">
             {skills.map((category, index) => (
               <SkillsCards
                 category={category}
@@ -247,7 +246,7 @@ export default function Home() {
         id="experience"
         containerClassName="grid grid-cols-12 gap-8 items-center"
       >
-        <div className="col-span-12 md:col-span-12">
+        <div className="col-span-12 md:col-span-12 min-h-80">
           <h2 className="mb-8 text-white">Professional Experience</h2>
           <AccordionSection experiences={experience} />
         </div>
