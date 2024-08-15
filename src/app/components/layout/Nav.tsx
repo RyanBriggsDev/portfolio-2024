@@ -5,17 +5,16 @@ function Nav() {
     { href: "#about", label: "About" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
-    { href: "#now", label: "Now" },
     { href: "#contact", label: "Contact", buttonType: "primary" },
   ];
 
   return (
-    <nav className="hidden md:flex fixed top-0 left-0 w-screen bg-black min-h-[50px] justify-center items-center">
-      <div className="max-w-[1440px] w-full px-[10px] mx-auto flex justify-between">
+    <nav className="hidden lg:flex fixed top-0 left-0 w-screen bg-black min-h-[50px] justify-center items-center z-50">
+      <div className="container w-full px-4 mx-auto flex justify-between">
         <Link href="#hero" className="btn">
           <h3 className="text-xl">RyanBriggs.Dev</h3>
         </Link>
-        <ul className="flex flex-row gap-[12px] items-center">
+        <ul className="flex flex-row md:gap-3 items-center">
           {navItems.map((item, index) => (
             <li key={index}>
               <Link

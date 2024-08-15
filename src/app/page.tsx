@@ -254,10 +254,6 @@ export default function Home() {
 
       <Projects />
 
-      <ContentSection id="now">
-        <h2>Now</h2>
-      </ContentSection>
-
       <ContentSection id="contact">
         <h2>Contact</h2>
       </ContentSection>
