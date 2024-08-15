@@ -11,13 +11,13 @@ type SkillCardProps = {
 const SkillCard: React.FC<SkillCardProps> = ({ item }: SkillCardProps) => {
   return (
     <a
-      className="flex flex-col justify-center items-center gap-2 min-w-[75px] p-2 hover:bg-[rgba(0,73,121,.5)] duration-300 ease-in-out transition-colors rounded-lg"
+      className="flex flex-col w-[120px] justify-center items-center gap-2 min-w-[75px] p-2 hover:bg-[rgba(0,73,121,.5)] duration-300 ease-in-out transition-colors rounded-lg"
       rel="noopener noreferrer"
       href={item.url}
       target="_blank"
     >
       <img src={item.image.src} alt={`${item.title} logo`} />
-      <p className=" text-white">{item.title}</p>
+      <p className="text-center text-white">{item.title}</p>
     </a>
   );
 };

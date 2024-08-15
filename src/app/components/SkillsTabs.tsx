@@ -36,14 +36,3 @@ const SkillsTabs: React.FC<SkillsTabsProps> = ({
 };
 
 export default SkillsTabs;
-
-{
-  /* <div className="skills-items">
-    {category.items.map((item, index) => (
-      <div key={index} className="skill-item">
-        <img src={item.image} alt={`${item.title} logo`} />
-        <span>{item.title}</span>
-      </div>
-    ))}
-  </div> */
-}

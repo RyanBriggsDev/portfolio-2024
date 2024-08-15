@@ -69,7 +69,7 @@ const experience: ExperienceCategory[] = [
     endDate: "Present",
     location: "Manchester, United Kingdom",
     workArrangement: "Hybrid",
-    skills: ["Shopify Liquid", "Tailwind CSS", "JavaScript", "Git", "React"],
+    skills: ["Liquid", "Tailwind CSS", "JavaScript", "Git", "React"],
     logo: RCALogo.src,
   },
 ];
