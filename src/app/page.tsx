@@ -18,14 +18,10 @@ import TypeScriptLogo from "./assets/images/icons/typescript_mod.svg";
 import ReactLogo from "./assets/images/icons/react_mod.svg";
 import JavaScriptLogo from "./assets/images/icons/js_mod.svg";
 import ShopifyLogo from "./assets/images/icons/shopify_mod.svg";
-import AngularLogo from "./assets/images/icons/angular_mod.svg";
-import VueLogo from "./assets/images/icons/vue_mod.svg";
-import JestLogo from "./assets/images/icons/jest_mod.svg";
 import TailwindLogo from "./assets/images/icons/tailwind_mod.svg";
 import SassLogo from "./assets/images/icons/sass_mod.svg";
 // Backend Icons
 import NodeJsLogo from "./assets/images/icons/nodejs_mod.svg";
-import PythonLogo from "./assets/images/icons/python_mod.svg";
 import MongoDBLogo from "./assets/images/icons/mongo_mod.svg";
 import ExpressLogo from "./assets/images/icons/expressjs_mod.svg";
 import FirebaseLogo from "./assets/images/icons/firebase_mod.svg";
@@ -85,17 +81,7 @@ const skills: SkillCategory[] = [
         url: "https://reactjs.org/",
       },
       {
-        title: "Angular",
-        image: AngularLogo,
-        url: "https://angular.io/",
-      },
-      {
-        title: "Vue",
-        image: VueLogo,
-        url: "https://vuejs.org/",
-      },
-      {
-        title: "Shopify Liquid",
+        title: "Liquid",
         image: ShopifyLogo,
         url: "https://shopify.dev/docs",
       },
@@ -108,11 +94,6 @@ const skills: SkillCategory[] = [
         title: "JavaScript",
         image: JavaScriptLogo,
         url: "https://www.javascript.com/",
-      },
-      {
-        title: "Jest",
-        image: JestLogo,
-        url: "https://jestjs.io/",
       },
       {
         title: "Tailwind",
@@ -133,11 +114,6 @@ const skills: SkillCategory[] = [
         title: "Node.js",
         image: NodeJsLogo,
         url: "https://nodejs.org/",
-      },
-      {
-        title: "Python",
-        image: PythonLogo,
-        url: "https://www.python.org/",
       },
       {
         title: "MongoDB",

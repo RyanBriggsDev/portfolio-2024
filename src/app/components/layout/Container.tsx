@@ -7,7 +7,7 @@ function Container({
 }>) {
   return (
     <div
-      className={`container mx-auto px-[10px] md:px-[40px] ${
+      className={`container mx-auto px-[10px] py-10 md:px-[40px] ${
         containerClassName ? containerClassName : ""
       }`}
     >
