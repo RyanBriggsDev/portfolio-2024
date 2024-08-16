@@ -4,6 +4,7 @@ import ContentSection from "./layout/ContentSection";
 import Koritsu_tech from "../assets/images/koritsu_tech.png";
 import RyanBriggsDev from "../assets/images/ryanbriggsdev.png";
 import pokedex from "../assets/images/pokedex.png";
+import ryan_ai from "../assets/images/ryan_ai.png";
 
 type ImportedImage = {
   src: string;
@@ -60,6 +61,27 @@ const projects: Project[] = [
     url: "https://pokedex.ryanbriggs.dev/",
     repo: "https://github.com/RyanBriggsDev/pokedex-2023",
     image: pokedex,
+    stack: [
+      { name: "Next.js", link: "https://nextjs.org/" },
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "Tailwind.css", link: "https://tailwindcss.com/" },
+      { name: "PokéAPI", link: "https://pokeapi.co/" },
+    ],
+  },
+  {
+    title: "Ryan AI",
+    description:
+      "Custom UI built to use the Anthropic AI API. Allows for users to sign up, enter their API key and easy access to the AI model.",
+    url: "https://ai.ryanbriggs.dev/",
+    repo: "https://github.com/RyanBriggsDev/claude-ai",
+    stack: [
+      { name: "Anthropic API", link: "https://www.anthropic.com/" },
+      { name: "React", link: "https://reactjs.org/" },
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "Node.js", link: "https://nodejs.org/" },
+      { name: "Tailwind.css", link: "https://tailwindcss.com/" },
+    ],
+    image: ryan_ai,
   },
 ];
 
