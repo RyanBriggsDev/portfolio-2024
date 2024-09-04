@@ -12,6 +12,7 @@ interface NavItem {
 function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
 
   const navItems: NavItem[] = [
     { href: "#about", label: "About" },
@@ -32,6 +33,17 @@ function Nav() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
+
+    // Measure footer height
+    const footer = document.querySelector("footer");
+    if (footer) {
+      const footerHeight = footer.offsetHeight;
+      document.documentElement.style.setProperty(
+        "--footer-height",
+        `${footerHeight}px`
+      );
+    }
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -43,7 +55,7 @@ function Nav() {
       className="fixed top-0 left-0 w-screen bg-black min-h-[50px] flex justify-center items-center z-50"
     >
       <div className="container w-full px-4 mx-auto flex justify-between items-center">
-        <Link href="#hero" className="btn">
+        <Link href="/" className="btn">
           <h3 className="text-xl">RyanBriggs.Dev</h3>
         </Link>
         <div className="lg:hidden">
