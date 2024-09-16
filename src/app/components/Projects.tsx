@@ -50,9 +50,15 @@ const projects: Project[] = [
       "Simple credit card number validator using the Luhn algorithm going back to basics using HTML, CSS and Vanilla JavaScript.",
     url: "https://cc-check.ryanbriggs.dev/",
     stack: [
-      { name: "HTML", link: "https://reactjs.org/" },
-      { name: "CSS", link: "https://reactjs.org/" },
-      { name: "JavaScript", link: "https://reactjs.org/" },
+      {
+        name: "HTML",
+        link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      },
+      { name: "CSS", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+      {
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics",
+      },
     ],
     repo: "https://github.com/RyanBriggsDev/credit-card-checker",
     image: CC_Check,
