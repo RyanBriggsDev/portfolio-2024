@@ -3,6 +3,7 @@ import ContentSection from "./layout/ContentSection";
 
 import Koritsu_tech from "../assets/images/koritsu_tech.png";
 import RyanBriggsDev from "../assets/images/ryanbriggsdev.png";
+import CC_Check from "../assets/images/cccheck.png";
 import pokedex from "../assets/images/pokedex.png";
 import ryan_ai from "../assets/images/ryan_ai.png";
 
@@ -42,6 +43,19 @@ const projects: Project[] = [
     ],
     repo: "https://github.com/ryanbriggsdev/koritsu-tech",
     image: Koritsu_tech,
+  },
+  {
+    title: "Credit Card Checker",
+    description:
+      "Simple credit card number validator using the Luhn algorithm going back to basics using HTML, CSS and Vanilla JavaScript.",
+    url: "https://cc-check.ryanbriggs.dev/",
+    stack: [
+      { name: "HTML", link: "https://reactjs.org/" },
+      { name: "CSS", link: "https://reactjs.org/" },
+      { name: "JavaScript", link: "https://reactjs.org/" },
+    ],
+    repo: "https://github.com/RyanBriggsDev/credit-card-checker",
+    image: CC_Check,
   },
   {
     title: "Portfolio",
