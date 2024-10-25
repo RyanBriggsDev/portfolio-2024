@@ -88,21 +88,6 @@ const projects: Project[] = [
       { name: "PokéAPI", link: "https://pokeapi.co/" },
     ],
   },
-  {
-    title: "Ryan AI",
-    description:
-      "Custom UI built to use the Anthropic AI API. Allows for users to sign up, enter their API key and easy access to the AI model.",
-    url: "https://ai.ryanbriggs.dev/",
-    repo: "https://github.com/RyanBriggsDev/claude-ai",
-    stack: [
-      { name: "Anthropic API", link: "https://www.anthropic.com/" },
-      { name: "React", link: "https://reactjs.org/" },
-      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
-      { name: "Node.js", link: "https://nodejs.org/" },
-      { name: "Tailwind.css", link: "https://tailwindcss.com/" },
-    ],
-    image: ryan_ai,
-  },
 ];
 
 const Projects: React.FC = () => {
