@@ -1,11 +1,12 @@
 import React, { useRef, useState, useCallback, useEffect } from "react";
 import ContentSection from "./layout/ContentSection";
 
-import Koritsu_tech from "../assets/images/koritsu_tech.png";
+
 import RyanBriggsDev from "../assets/images/ryanbriggsdev.png";
 import CC_Check from "../assets/images/cccheck.png";
 import pokedex from "../assets/images/pokedex.png";
 import ryan_ai from "../assets/images/ryan_ai.png";
+import localPropertyLettings from "../assets/images/local-property-lettings.png";
 
 type ImportedImage = {
   src: string;
@@ -28,22 +29,21 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Koritsu.tech",
+    title: "Local Property Lettings",
     description:
-      "Full stack web application providing a centralised information repository for teams and organisations.",
-    url: "https://github.com/ryanbriggsdev/koritsu-tech",
+      "Modern property lettings website built with React and Sanity CMS. Features responsive design with shadcn/ui components, client-side routing, and a clean, professional interface for property management services.",
+    url: "https://www.localpropertylettings.com/",
     stack: [
       { name: "React", link: "https://reactjs.org/" },
-      { name: "Node.js", link: "https://nodejs.org/" },
-      { name: "Tailwind.css", link: "https://tailwindcss.com/" },
-      { name: "Vite", link: "https://vitejs.dev/" },
-      { name: "Express", link: "https://expressjs.com/" },
-      { name: "JWT", link: "https://jwt.io/" },
-      { name: "SQLite", link: "https://www.sqlite.org/" },
+      { name: "React Router", link: "https://reactrouter.com/" },
+      { name: "Sanity CMS", link: "https://www.sanity.io/" },
+      { name: "shadcn/ui", link: "https://ui.shadcn.com/" },
+      { name: "Tailwind CSS", link: "https://tailwindcss.com/" },
     ],
-    repo: "https://github.com/ryanbriggsdev/koritsu-tech",
-    image: Koritsu_tech,
+    // repo: "https://github.com/yourusername/local-property-lettings", // Uncomment and update if public
+    image: localPropertyLettings,
   },
+
   {
     title: "Credit Card Checker",
     description:
