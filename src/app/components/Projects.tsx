@@ -1,12 +1,19 @@
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay, EffectCards } from "swiper/modules";
 import ContentSection from "./layout/ContentSection";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-cards";
 
 import RyanBriggsDev from "../assets/images/ryanbriggsdev.png";
 import CC_Check from "../assets/images/cccheck.png";
 import pokedex from "../assets/images/pokedex.png";
-import ryan_ai from "../assets/images/ryan_ai.png";
 import localPropertyLettings from "../assets/images/local-property-lettings.png";
+import webiliti from "../assets/images/webiliti.png";
 
 type ImportedImage = {
   src: string;
@@ -25,9 +32,27 @@ interface Project {
   stack?: TechStack[];
   repo?: string;
   image?: ImageSource;
+  category: string;
 }
 
 const projects: Project[] = [
+  {
+    title: "Webiliti",
+    description:
+      "A comprehensive web management and testing platform that brings together essential web testing tools in one powerful platform. Features include instant visual testing across devices, performance monitoring, quality assurance automation, and historical tracking and reporting.",
+    url: "https://www.webiliti.com/",
+    stack: [
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "React", link: "https://reactjs.org/" },
+      { name: "Tailwind CSS", link: "https://tailwindcss.com/" },
+      { name: "Hono.js", link: "https://hono.dev/" },
+      { name: "Cloudflare", link: "https://www.cloudflare.com/" },
+      { name: "SQLite", link: "https://www.sqlite.org/" },
+    ],
+    // repo: "https://github.com/yourusername/webiliti", // Uncomment and update if public
+    image: webiliti,
+    category: "Web Application",
+  },
   {
     title: "Local Property Lettings",
     description:
@@ -42,8 +67,8 @@ const projects: Project[] = [
     ],
     // repo: "https://github.com/yourusername/local-property-lettings", // Uncomment and update if public
     image: localPropertyLettings,
+    category: "Web Application",
   },
-
   {
     title: "Credit Card Checker",
     description:
@@ -62,6 +87,7 @@ const projects: Project[] = [
     ],
     repo: "https://github.com/RyanBriggsDev/credit-card-checker",
     image: CC_Check,
+    category: "Utility Tool",
   },
   {
     title: "Portfolio",
@@ -73,6 +99,7 @@ const projects: Project[] = [
     ],
     repo: "https://github.com/ryanbriggsdev/portfolio-2024",
     image: RyanBriggsDev,
+    category: "Personal",
   },
   {
     title: "Pokedex",
@@ -87,97 +114,75 @@ const projects: Project[] = [
       { name: "Tailwind.css", link: "https://tailwindcss.com/" },
       { name: "PokéAPI", link: "https://pokeapi.co/" },
     ],
+    category: "Web Application",
   },
 ];
 
 const Projects: React.FC = () => {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
-  const [canScrollRight, setCanScrollRight] = useState<boolean>(false);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [startX, setStartX] = useState<number>(0);
-  const [scrollLeft, setScrollLeft] = useState<number>(0);
+  const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const checkScroll = useCallback(() => {
-    if (sliderRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
-    }
-  }, []);
+  const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
 
-  useEffect(() => {
-    checkScroll();
-    window.addEventListener("resize", checkScroll);
-    return () => window.removeEventListener("resize", checkScroll);
-  }, [checkScroll]);
-
-  const scroll = (direction: "left" | "right") => {
-    if (sliderRef.current) {
-      const scrollAmount = sliderRef.current.clientWidth;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const startDragging = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (sliderRef.current) {
-      setIsDragging(true);
-      setStartX(e.pageX - sliderRef.current.offsetLeft);
-      setScrollLeft(sliderRef.current.scrollLeft);
-    }
-  };
-
-  const stopDragging = () => {
-    setIsDragging(false);
-  };
-
-  const drag = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isDragging || !sliderRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    sliderRef.current.scrollLeft = scrollLeft - walk;
-  };
+  const filteredProjects = activeCategory === "All" 
+    ? projects 
+    : projects.filter(project => project.category === activeCategory);
 
   return (
     <ContentSection id="projects">
-      <h2 className="mb-2 text-white">Projects</h2>
-      <h4 className="mb-8 text-white">Some of my personal projects.</h4>
-      <div className="relative">
-        <div
-          className="overflow-x-scroll no-scrollbar flex space-x-4 md:space-x-6 cursor-grab active:cursor-grabbing"
-          ref={sliderRef}
-          onScroll={checkScroll}
-          onMouseDown={startDragging}
-          onMouseLeave={stopDragging}
-          onMouseUp={stopDragging}
-          onMouseMove={drag}
-        >
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} />
+      <div className="text-center mb-12">
+        <h2 className="mb-2 text-white">Projects</h2>
+        <h4 className="mb-8 text-white">Some of my personal projects.</h4>
+        
+        {/* Category Filter */}
+        <div className="flex flex-wrap gap-3 justify-center mb-8">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-3 rounded-full transition-all duration-300 font-medium ${
+                activeCategory === category
+                  ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
+                  : "bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white"
+              }`}
+            >
+              {category}
+            </button>
           ))}
         </div>
-        {canScrollLeft && (
-          <button
-            onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500 p-2 rounded-full text-white"
-            aria-label="Scroll left"
-          >
-            &#8592;
-          </button>
-        )}
-        {canScrollRight && (
-          <button
-            onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-500 p-2 rounded-full text-white"
-            aria-label="Scroll right"
-          >
-            &#8594;
-          </button>
-        )}
+      </div>
+
+      <div className="max-w-6xl mx-auto">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          className="projects-swiper"
+        >
+          {filteredProjects.map((project, index) => (
+            <SwiperSlide key={index}>
+              <ProjectCard project={project} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </ContentSection>
   );
@@ -193,23 +198,35 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   return (
-    <div className="project-card w-80 flex-shrink-0 bg-gray-800 p-4 rounded-lg flex flex-col">
+    <div className={`project-card bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 h-full flex flex-col transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl min-h-[690px]`}>
+      
       {project.image && (
-        <img
-          src={
-            isImportedImage(project.image) ? project.image.src : project.image
-          }
-          alt={`${project.title} preview`}
-          className="w-full h-40 object-cover rounded-lg mb-4"
-        />
+        <div className="relative overflow-hidden rounded-xl mb-6 group">
+          <img
+            src={
+              isImportedImage(project.image) ? project.image.src : project.image
+            }
+            alt={`${project.title} preview`}
+            className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
       )}
-      <h3 className="text-white text-xl font-bold mb-2">{project.title}</h3>
-      <p className="text-gray-300 mb-4 text-wrap h-32 truncate">
+      
+      <div className="mb-4">
+        <span className="text-xs text-blue-400 bg-blue-900/20 px-3 py-1 rounded-full font-medium">
+          {project.category}
+        </span>
+      </div>
+      
+      <h3 className="text-white text-xl font-bold mb-3">{project.title}</h3>
+      <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
         {project.description}
       </p>
+      
       {project.stack && (
-        <div className="mb-8">
-          <h4 className="text-white font-semibold mb-4">Tech Stack:</h4>
+        <div className="mb-6">
+          <h4 className="text-white font-semibold mb-3 text-sm">Tech Stack:</h4>
           <div className="flex flex-wrap gap-2">
             {project.stack.map((tech, index) => (
               <a
@@ -217,7 +234,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={tech.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gray-700 transition-all duration-300 ease-in-out hover:bg-blue-600 text-white px-2 py-1 rounded text-sm"
+                className="bg-gray-700/50 transition-all duration-300 ease-in-out hover:bg-blue-600 text-white px-3 py-1 rounded-full text-xs hover:scale-105"
               >
                 {tech.name}
               </a>
@@ -225,23 +242,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
         </div>
       )}
-      <div className="flex space-x-4 mt-auto justify-between">
+      
+      <div className="flex gap-3 mt-auto">
         <a
           href={project.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex-1 text-center font-medium"
         >
-          View Project
+          View Live
         </a>
         {project.repo && (
           <a
             href={project.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 transition-colors"
+            className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors flex-1 text-center font-medium"
           >
-            GitHub
+            View Code
           </a>
         )}
       </div>

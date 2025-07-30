@@ -138,11 +138,59 @@ function About() {
       <div className="about-me">
         <h2 className="mb-2 text-white">About Me</h2>
         <h4 className="mb-8 text-white">Learn a bit about me.</h4>
-        <p>
-          I am a self-taught front-end web developer with 1 year of experience
-          in creating dynamic and responsive web applications using React and
-          Next.js frameworks.
+        <p className="text-gray-300 leading-relaxed">
+          I'm a passionate frontend developer specializing in React, Next.js, and Shopify development. 
+          With expertise in creating high-performance e-commerce solutions and modern web applications, 
+          I focus on delivering exceptional user experiences through clean code and optimized performance.
         </p>
+        <p className="text-gray-300 leading-relaxed mt-4">
+          Currently working as an Expert Shopify Developer, I've helped numerous businesses 
+          optimize their online presence and increase conversions through custom theme development 
+          and performance optimization.
+        </p>
+        
+        {/* Skills Progress */}
+        <div className="mt-8">
+          <h5 className="text-white font-semibold mb-4">Key Skills</h5>
+          <div className="space-y-3">
+            <div>
+              <div className="flex justify-between text-sm text-gray-300 mb-1">
+                <span>React/Next.js</span>
+                <span>95%</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2">
+                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '95%' }}></div>
+              </div>
+            </div>
+            <div>
+              <div className="flex justify-between text-sm text-gray-300 mb-1">
+                <span>Shopify/Liquid</span>
+                <span>90%</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2">
+                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '90%' }}></div>
+              </div>
+            </div>
+            <div>
+              <div className="flex justify-between text-sm text-gray-300 mb-1">
+                <span>TypeScript</span>
+                <span>85%</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2">
+                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '85%' }}></div>
+              </div>
+            </div>
+            <div>
+              <div className="flex justify-between text-sm text-gray-300 mb-1">
+                <span>Tailwind CSS</span>
+                <span>90%</span>
+              </div>
+              <div className="w-full bg-gray-700 rounded-full h-2">
+                <div className="bg-blue-600 h-2 rounded-full" style={{ width: '90%' }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="skills flex flex-col gap-8 ">
         <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start [&>*]:min-w-[100px]">
