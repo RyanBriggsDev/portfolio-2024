@@ -14,6 +14,7 @@ import CC_Check from "../assets/images/cccheck.png";
 import pokedex from "../assets/images/pokedex.png";
 import localPropertyLettings from "../assets/images/local-property-lettings.png";
 import webiliti from "../assets/images/webiliti.png";
+import familyBudget from "../assets/images/family-budget.png";
 
 type ImportedImage = {
   src: string;
@@ -32,10 +33,25 @@ interface Project {
   stack?: TechStack[];
   repo?: string;
   image?: ImageSource;
-  category: string;
+  categories: string[];
 }
 
 const projects: Project[] = [
+  {
+    title: "Family Budget Tracker",
+    description:
+      "A comprehensive family budgeting application that helps track income, expenses, and savings goals. Features include expense categorization, budget planning, financial insights, and progress tracking to help families achieve their financial goals.",
+    url: "https://budget.ryanbriggs.dev",
+    stack: [
+      { name: "React", link: "https://reactjs.org/" },
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "Tailwind CSS", link: "https://tailwindcss.com/" },
+      { name: "Supabase", link: "https://supabase.com/" },
+    ],
+    // repo: "https://github.com/yourusername/personal-finance-app", // Uncomment and update if public
+    image: familyBudget,
+    categories: ["Personal", "Web Application"],
+  },
   {
     title: "Webiliti",
     description:
@@ -51,7 +67,7 @@ const projects: Project[] = [
     ],
     // repo: "https://github.com/yourusername/webiliti", // Uncomment and update if public
     image: webiliti,
-    category: "Web Application",
+    categories: ["Web Application"],
   },
   {
     title: "Local Property Lettings",
@@ -67,7 +83,7 @@ const projects: Project[] = [
     ],
     // repo: "https://github.com/yourusername/local-property-lettings", // Uncomment and update if public
     image: localPropertyLettings,
-    category: "Web Application",
+    categories: ["Web Application"],
   },
   {
     title: "Credit Card Checker",
@@ -87,7 +103,7 @@ const projects: Project[] = [
     ],
     repo: "https://github.com/RyanBriggsDev/credit-card-checker",
     image: CC_Check,
-    category: "Utility Tool",
+    categories: ["Utility Tool"],
   },
   {
     title: "Portfolio",
@@ -99,7 +115,7 @@ const projects: Project[] = [
     ],
     repo: "https://github.com/ryanbriggsdev/portfolio-2024",
     image: RyanBriggsDev,
-    category: "Personal",
+    categories: ["Personal"],
   },
   {
     title: "Pokedex",
@@ -114,18 +130,18 @@ const projects: Project[] = [
       { name: "Tailwind.css", link: "https://tailwindcss.com/" },
       { name: "PokéAPI", link: "https://pokeapi.co/" },
     ],
-    category: "Web Application",
+    categories: ["Web Application"],
   },
 ];
 
 const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
-  const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
+  const categories = ["All", ...Array.from(new Set(projects.flatMap(p => p.categories)))];
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
-    : projects.filter(project => project.category === activeCategory);
+    : projects.filter(project => project.categories.includes(activeCategory));
 
   return (
     <ContentSection id="projects">
