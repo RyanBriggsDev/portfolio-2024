@@ -229,11 +229,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
       )}
       
-      <div className="mb-4">
-        <span className="text-xs text-blue-400 bg-blue-900/20 px-3 py-1 rounded-full font-medium">
-          {project.category}
-        </span>
-      </div>
+      {project.categories && project.categories.length > 0 && (
+        <div className="mb-4 flex flex-wrap gap-2">
+          {project.categories.map((cat) => (
+            <span
+              key={cat}
+              className="text-xs text-blue-400 bg-blue-900/20 px-3 py-1 rounded-full font-medium"
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
+      )}
       
       <h3 className="text-white text-xl font-bold mb-3">{project.title}</h3>
       <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
