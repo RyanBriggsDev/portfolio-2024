@@ -7,11 +7,11 @@ type ExperienceCategory = {
   title: string;
   company: string;
   description: string;
-  employmentType: string;
+  employmentType?: string;
   startDate: string;
   endDate: string;
   location: string;
-  workArrangement: string;
+  workArrangement?: string;
   skills: string[];
   logo: string;
   url?: string;
@@ -35,12 +35,10 @@ const experience: ExperienceCategory[] = [
     title: "Co-founder",
     company: "Webiliti",
     description: "Webiliti is an advanced web management and testing platform designed to help teams ship faster by offering tools for real-time quality assurance, identifying visual drift, and optimizing Core Web Vitals performance.",
-    employmentType: "Full-time",
     startDate: "Jul 2024",
     endDate: "Present",
     location: "Anywhere",
-    workArrangement: "Remote",
-    skills: ["TypeScript", "React", "Tailwind CSS", "Hono.js", "Cloudflare", "SQLite"],
+    skills: ["TypeScript", "React", "Tailwind CSS", "SQLite", "Shadcn UI"],
     logo: typeof WebilitiLogo === 'string' ? WebilitiLogo : WebilitiLogo.src,
     url: "https://www.webiliti.com/",
   },
@@ -145,10 +143,16 @@ function Experience() {
                     <div className="text-sm text-gray-400 mb-1">
                       {exp.startDate} - {exp.endDate}
                     </div>
-                    <div className="flex items-center justify-end space-x-2 text-xs text-gray-500">
-                      <span className="bg-gray-700 text-gray-400 px-2 py-1 rounded-full">{exp.employmentType}</span>
-                      <span className="bg-gray-700 text-gray-400 px-2 py-1 rounded-full">{exp.workArrangement}</span>
-                    </div>
+                    {(exp.employmentType || exp.workArrangement) && (
+                      <div className="flex items-center justify-end space-x-2 text-xs text-gray-500">
+                        {exp.employmentType && (
+                          <span className="bg-gray-700 text-gray-400 px-2 py-1 rounded-full">{exp.employmentType}</span>
+                        )}
+                        {exp.workArrangement && (
+                          <span className="bg-gray-700 text-gray-400 px-2 py-1 rounded-full">{exp.workArrangement}</span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
 
